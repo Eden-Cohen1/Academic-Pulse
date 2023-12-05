@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #ffffff;
+    --color-sec: #f8fafc;
+    --color-btn: #33a06f;
+    --color-btn-hover: #2d7f5a;
+    --color-text: #3b485c;
+    --color-btn-txt: #d1d8e0;
+    --color-border: rgba(27, 27, 28, 0.185);
+  }
+
+  :root[class~="dark"] {
+    --color-primary: #1a1a1a;
+    --color-sec: #242424;
+    --color-btn: #33a06f;
+    --color-text: #d1d8e0;
+    --color-btn-txt: black;
+    --color-border: rgba(255, 255, 255, 0.185);
+  }
+}
+
+@layer components {
+  .input {
+    @apply border border-solid border-borderColor rounded-xl text-txt w-80 p-2 pl-1.5 text-sm bg-primary;
+  }
+  .btn-primary {
+    @apply rounded-md bg-btn px-3 py-1.5 font-medium text-white shadow-sm hover:bg-btnHover text-center cursor-pointer;
+  }
+  .formHeader {
+    @apply text-center text-xl text-white;
+  }
+  .google {
+    @apply px-4 py-2 border flex gap-2 border-borderColor rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 hover:shadow transition duration-150 w-56 m-auto mb-12;
+  }
+}

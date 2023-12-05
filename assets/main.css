@@ -1,0 +1,21 @@
+:root {
+  --dark-bg-main: #020420;
+  --dark-bg-sec: #10172e;
+  --btn-main: #00dc82;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  height: 100vh;
+}
+body {
+  height: 100%;
+}
+
+input {
+  outline: none;
+  min-height: 2.4rem;
+}
