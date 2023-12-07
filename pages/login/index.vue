@@ -1,17 +1,14 @@
 <script setup>
 const loginState = ref(true);
-const user = useSupabaseUser();
-const router = useRouter();
-watchEffect(() => {
-  if (user.value) {
-    router.push("/");
-  }
-});
+const darkMode = useDark();
 </script>
 <template>
-  <main class="flex content-center h-screen text-txt">
+  <main class="flex flex-col h-screen text-txt p-5 gap-20">
+    <div class="relative m-auto top-16">
+      <NuxtImg class="w-96" :src="darkMode.getLogo" />
+    </div>
     <div
-      class="form-div flex flex-col m-auto w-96 border border-solid border-borderColor rounded-3xl bg-secondary"
+      class="form-div flex flex-col mb-24 sm:mb-48 m-auto w-70 sm:w-96 border border-solid border-borderColor rounded-3xl bg-secondary"
     >
       <div
         class="flex justify-around relative top-0 bg-btn w-full mb-10 rounded-t-3xl content-center cursor-pointer"
@@ -41,8 +38,8 @@ watchEffect(() => {
           <h1 class="formHeader">Sign Up</h1>
         </div>
       </div>
-      <Login v-if="loginState" class="loginComp" />
-      <Signup v-else class="signupComp" />
+      <FormLogin v-if="loginState" />
+      <FormSignup v-else />
     </div>
   </main>
 </template>
@@ -62,9 +59,5 @@ watchEffect(() => {
 }
 div {
   transition: transform 0.5s ease-out;
-}
-.form-div {
-  transition: all 0.3 ease;
-  min-height: 490px;
 }
 </style>

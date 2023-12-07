@@ -10,12 +10,44 @@
 
 html {
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 input {
   outline: none;
   min-height: 2.4rem;
+}
+button:disabled,
+input:disabled {
+  background-color: rgb(166, 180, 174);
+}
+button:disabled:hover,
+input:disabled:hover {
+  background-color: rgb(166, 180, 174);
+}
+
+@keyframes hover-grow {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
+@keyframes hover-shrink {
+  0% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
