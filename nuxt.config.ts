@@ -18,14 +18,7 @@ export default defineNuxtConfig({
   css: ["~/assets/main.css"],
   googleFonts: {
     families: {
-      Montserrat: true,
-      "Open+Sans": true,
-      Roboto: true,
-      Lato: true,
-      "Space+Mono": true,
       Poppins: true,
-      Playpen: true,
-      "Playpen+Sans": true,
     },
   },
   supabase: {
