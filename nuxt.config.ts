@@ -34,5 +34,11 @@ export default defineNuxtConfig({
       callback: "/",
       exclude: ["/login/reset"],
     },
+    image: {
+      provider: "netlify",
+      netlify: {
+        baseURl: process.env.IMAGES_URL,
+      },
+    },
   },
 });
