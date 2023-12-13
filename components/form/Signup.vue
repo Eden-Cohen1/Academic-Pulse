@@ -2,47 +2,25 @@
 import suite from "~/validations/signup";
 
 const client = useSupabaseClient();
-const fullName = ref("");
-const email = ref("");
-const password = ref("");
-const errorMsg = ref("");
-const successMsg = ref("");
-let res = reactive(suite.get());
+const formData = reactive({
+  email: "",
+  password: "",
+  fullName: "",
+});
+const apiResponse = reactive({
+  errorMsg: "",
+  successMsg: "",
+  loading: false,
+});
 
-const signUp = async () => {
-  try {
-    errorMsg.value = "";
-    successMsg.value = "";
-    const { data, error } = await client.auth.signUp({
-      email: email?.value,
-      password: password?.value,
-      data: {
-        name: fullName?.value,
-      },
-    });
-    if (error) throw error;
-    else successMsg.value = "Check your email to confirm your account.";
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
-};
-const googleSignUp = async () => {
-  try {
-    errorMsg.value = "";
-    const { data, error } = await client.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${location.origin}/`,
-      },
-    });
-    if (error) throw error;
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
-};
+let res = reactive(suite.get());
 const validate = (name) => {
   res = suite(
-    { email: email.value, password: password.value, fullName: fullName.value },
+    {
+      email: formData.email,
+      password: formData.password,
+      fullName: formData.fullName,
+    },
     name
   );
 };
@@ -50,9 +28,22 @@ const validate = (name) => {
 
 <template>
   <main class="flex flex-col m-5 mt-0">
-    <form @submit.prevent="signUp" class="flex flex-col">
+    <Alert
+      v-if="apiResponse.errorMsg"
+      :text="apiResponse.errorMsg"
+      type="error"
+    />
+    <Alert
+      v-if="apiResponse.successMsg"
+      :text="apiResponse.successMsg"
+      type="success"
+    />
+    <form
+      @submit.prevent="signUp(apiResponse, formData, client)"
+      class="flex flex-col"
+    >
       <InputAuth
-        v-model="fullName"
+        v-model="formData.fullName"
         type="text"
         class="m-auto mb-5"
         :errors="res.getErrors('fullName')"
@@ -61,7 +52,7 @@ const validate = (name) => {
         required
       />
       <InputAuth
-        v-model="email"
+        v-model="formData.email"
         type=""
         class="m-auto mb-5"
         :errors="res.getErrors('email')"
@@ -69,20 +60,24 @@ const validate = (name) => {
         @update:modelValue="validate('email')"
       />
       <InputAuth
-        v-model="password"
+        v-model="formData.password"
         type="password"
         class="m-auto"
         :errors="res.getErrors('password')"
         label="Password"
         @update:modelValue="validate('password')"
       />
-      <InputSubmit :isValid="!res.isValid()" text="Signup" class="w-56" />
-      <div class="relative feedback h-5 top-1 w-fit m-auto">
-        <small class="text-red-500">{{ errorMsg }}</small>
-        <small class="text-green-500">{{ successMsg }}</small>
-      </div>
+      <ButtonSubmit
+        :isValid="!res.isValid()"
+        text="Signup"
+        class="w-56 m-auto mt-8 mb-4"
+      />
+      <div class="relative feedback h-5 top-1 w-fit m-auto"></div>
     </form>
 
-    <ButtonGoogle @googleClick="googleSignUp" span="Signup with Google" />
+    <ButtonGoogle
+      @googleClick="googleSignUp(apiResponse, formData, client)"
+      span="Signup with Google"
+    />
   </main>
 </template>

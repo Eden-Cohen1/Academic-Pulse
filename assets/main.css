@@ -3,11 +3,9 @@
   --dark-bg-sec: #10172e;
   --btn-main: #00dc82;
 }
-
 * {
   font-family: "Poppins", sans-serif;
 }
-
 html {
   height: 100vh;
   overflow-x: hidden;
@@ -17,10 +15,8 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
-
 input {
   outline: none;
-  min-height: 2.4rem;
 }
 button:disabled,
 input:disabled {
@@ -30,21 +26,43 @@ button:disabled:hover,
 input:disabled:hover {
   background-color: rgb(166, 180, 174);
 }
-
+button.logout {
+  background: -webkit-linear-gradient(315deg, #33a06f, #00dc82 100%) !important;
+  transition: all 0.8s, color 0.3s 0.3s;
+}
+button.logout:hover {
+  background: -webkit-linear-gradient(315deg, #33a06f, #242323 200%) !important;
+}
+svg {
+  animation: hover-shrink 0.2s forwards;
+}
+svg:hover {
+  animation: hover-grow 0.2s forwards;
+  color: var(--color-btn);
+}
+#upcoming {
+  border-color: var(--border-color);
+}
+#in-progress {
+  border-color: orange;
+}
+#finished {
+  border-color: var(--color-btn);
+}
 @keyframes hover-grow {
   0% {
     -webkit-transform: scale(1);
     transform: scale(1);
   }
   100% {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
 }
 @keyframes hover-shrink {
   0% {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
   100% {
     -webkit-transform: scale(1);

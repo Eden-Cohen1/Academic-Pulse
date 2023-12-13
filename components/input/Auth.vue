@@ -1,15 +1,19 @@
 <script setup>
 defineProps({
   modelValue: {
-    type: String,
+    type: [String, Number],
     default: "",
   },
   errors: {
     type: Array,
-    default: [""],
+    default: [],
   },
   label: {
     type: String,
+  },
+  placeholder: {
+    type: [String, Number],
+    default: "",
   },
 });
 defineEmits(["update:modelValue", "update:modelValue"]);
@@ -18,9 +22,11 @@ defineEmits(["update:modelValue", "update:modelValue"]);
 <template>
   <div class="mb-0 flex flex-col">
     <div class="flex items-end">
-      <label class="text-sm font-medium leading-6 ml-1">{{ label }}</label>
+      <label class="text-sm text-txt font-medium leading-6 ml-1">{{
+        label
+      }}</label>
       <p
-        class="relative text-[0.7rem] ml-auto w-fit h-fit"
+        class="relative text-[0.7rem] ml-auto w-fit h-fit text-red-500"
         v-for="error in errors"
       >
         {{ error }}
@@ -28,9 +34,10 @@ defineEmits(["update:modelValue", "update:modelValue"]);
     </div>
     <input
       :value="modelValue"
+      :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)"
       v-bind="$attrs"
-      :class="[`input m-auto`, { 'border-red-400': errors.length }]"
+      :class="[`input max-w-full`, { 'border-red-400': errors.length }]"
     />
   </div>
 </template>

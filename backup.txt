@@ -1,0 +1,185 @@
+<script setup>
+const client = useSupabaseClient();
+const modalOpen = ref(true);
+const isActive = ref(false);
+const { width } = screenWidth();
+const isMobile = computed(() => {
+  return width.value < 640;
+});
+const hiddenState = ref("hidden");
+const changeState = () => {
+  isActive.value = !isActive.value;
+  hiddenState.value = isActive.value ? "active" : "hidden";
+};
+const { data } = await getAllCourses(client);
+const courses = ref(data);
+const cards = ref([]);
+const addCard = (newCard) => {
+  cards.value.push(newCard);
+};
+</script>
+
+<template>
+  <main class="flex flex-col h-full md:h-[95%] w-full max-h-screen">
+    <div
+      class="flex flex-col border-bot w-full h-32 items-center p-5 border-t-[1px] border-borderColor"
+    >
+      <div class="relative flex items-center mt-5 md:gap-3 gap-1">
+        <header class="flex flex-col gap-1 items-center text-txt">
+          <h1 class="text-l md:text-xl font-bold text-center">
+            Darg & Drop To Arrange Your<span class="text-btn">
+              Academic Schedule</span
+            >
+          </h1>
+          <p class="font-medium text-sm md:text-lg" v-show="!isMobile">
+            drag each course to it's year/semseter
+          </p>
+        </header>
+        <NuxtImg :src="'drag.png'" class="w-12 h-12" />
+      </div>
+    </div>
+    <div class="relative flex h-full w-full overflow-hidden">
+      <div
+        :id="hiddenState"
+        class="absolute right-0 top-0 flex order-2 h-full max-w-[50%] overflow-y-auto overflow-x-hidden bg-third z-20 border-l-[1px] border-borderColor"
+      >
+        <div class="flex flex-col w-[20rem] h-full gap-2 order-1 items-center">
+          <h1
+            class="text-sm md:text-xl font-bold text-txt p-3 rounded-xl text-center bg-secondary m-2"
+          >
+            Courses Storage
+          </h1>
+          <draggable
+            :list="courses"
+            group="courses"
+            item-key="id"
+            class="flex flex-col gap-2 w-[80%]"
+          >
+            <template #item="{ element: course }">
+              <div
+                class="course flex flex-col rounded-lg h-fit p-2 bg-secondary text-txt text-center gap-0.5 border-btn border-[1px]"
+              >
+                <h1 class="w-full break-words text-sm">{{ course.name }}</h1>
+                <p class="text-txtLight text-xs">{{ course.number }}</p>
+                <p class="text-txtLight text-xs">{{ course.points }}</p>
+              </div>
+            </template>
+          </draggable>
+        </div>
+        <button class="h-full text-txt pl-1" @click="changeState">
+          <icon
+            v-if="!isActive"
+            name="streamline:interface-arrows-button-to-left-arrow-line-to-left"
+          />
+          <icon
+            v-else
+            name="streamline:interface-arrows-button-to-right-arrow-line-to-right"
+          />
+        </button>
+      </div>
+      <div class="w-full h-full flex flex-col items-center mt-10">
+        <div
+          v-for="card in cards"
+          class="flex flex-col card w-[80%] border-borderColor border-[2px] md:w-96 h-80 rounded-3xl bg-third items-start"
+        >
+          <header
+            class="flex justify-center items-center w-full h-12 rounded-t-3xl bg-secondary"
+          >
+            <h1 class="w-fit break-words text-md font-bold text-txt">
+              {{ card.year }} - {{ card.semester }}
+            </h1>
+          </header>
+          <div
+            class="flex flex-wrap course-list w-full h-full rounded-b-3xl overflow-y-auto p-3 gap-3"
+          >
+            <draggable
+              :list="courses"
+              group="courses"
+              item-key="id"
+              class="flex flex-wrap gap-2 w-[80%]"
+            >
+              <template #item="{ element: course }">
+                <div
+                  class="course flex flex-col rounded-lg h-fit p-2 bg-secondary text-txt text-center gap-0.5 border-btn border-[1px]"
+                >
+                  <h1 class="w-full break-words text-sm">{{ course.name }}</h1>
+                  <p class="text-txtLight text-xs">{{ course.number }}</p>
+                  <p class="text-txtLight text-xs">{{ course.points }}</p>
+                </div>
+              </template>
+            </draggable>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ScheduleModal
+      v-if="modalOpen"
+      @newCard="addCard"
+      @close="modalOpen = false"
+    />
+  </main>
+</template>
+
+<style scoped>
+.course {
+  animation: hover-shrink 0.2s forwards;
+}
+.course:hover {
+  animation: hover-grow 0.2s forwards;
+  color: var(--color-btn);
+}
+
+#hidden {
+  width: 1.5rem;
+  overflow-y: hidden;
+  transition: width 500ms;
+}
+#active {
+  width: 20rem;
+  overflow-y: scroll;
+  transition: width 500ms;
+}
+.course-list .course {
+  width: 30%;
+}
+</style>
+
+
+      <div
+        :id="hiddenState"
+        class="absolute right-0 top-0 flex order-2 h-full max-w-[50%] overflow-y-auto overflow-x-hidden bg-third z-20 border-l-[1px] border-borderColor"
+      >
+        <div class="flex flex-col w-[20rem] h-full gap-2 order-1 items-center">
+          <h1
+            class="text-sm md:text-xl font-bold text-txt p-3 rounded-xl text-center bg-secondary m-2"
+          >
+            Courses Storage
+          </h1>
+          <draggable
+            :list="courses"
+            group="courses"
+            item-key="id"
+            class="flex flex-col gap-2 w-[80%]"
+          >
+            <template #item="{ element: course }">
+              <div
+                class="course flex flex-col rounded-lg h-fit p-2 bg-secondary text-txt text-center gap-0.5 border-btn border-[1px]"
+              >
+                <h1 class="w-full break-words text-sm">{{ course.name }}</h1>
+                <p class="text-txtLight text-xs">{{ course.number }}</p>
+                <p class="text-txtLight text-xs">{{ course.points }}</p>
+              </div>
+            </template>
+          </draggable>
+        </div>
+        <button class="h-full text-txt pl-1" @click="changeState">
+          <icon
+            v-if="!isActive"
+            name="streamline:interface-arrows-button-to-left-arrow-line-to-left"
+          />
+          <icon
+            v-else
+            name="streamline:interface-arrows-button-to-right-arrow-line-to-right"
+          />
+        </button>
+      </div>

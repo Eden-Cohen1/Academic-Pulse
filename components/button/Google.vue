@@ -4,6 +4,7 @@ defineProps({
     type: String,
   },
 });
+defineEmits(["googleClick"]);
 </script>
 <template>
   <p class="mb-6 mt-2 m-auto text-borderColor font-bold">

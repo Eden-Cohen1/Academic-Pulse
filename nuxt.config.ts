@@ -4,12 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "nuxt-icon",
+    "nuxt-gtag",
     "@nuxt/image",
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/supabase",
     ["@pinia/nuxt", { autoImports: ["defineStore"] }],
   ],
+  plugins: [{ src: "~/plugins/vuedraggable.js" }],
   imports: {
     dirs: ["stores"],
   },
