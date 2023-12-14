@@ -29,6 +29,7 @@ const formData = reactive({
   isEdit: false,
 });
 let res = reactive(suite.get());
+
 const validate = (name) => {
   res = suite(
     {
@@ -101,7 +102,6 @@ defineEmits(["deleteClick", "updateCourses"]);
         </option>
       </select>
     </div>
-
     <div v-if="!formData.isEdit" class="absolute right-2 top-4 flex gap-3">
       <button @click="formData.isEdit = true">
         <icon name="material-symbols-light:edit-rounded" />
@@ -125,14 +125,5 @@ svg {
 svg:hover {
   animation: hover-grow 0.2s forwards;
   color: var(--color-btn);
-}
-#upcoming {
-  border-color: var(--color-border);
-}
-#in-progress {
-  border-color: orange;
-}
-#finished {
-  border-color: var(--color-btn);
 }
 </style>

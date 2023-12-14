@@ -10,6 +10,7 @@ const icon = {
   success: "icon-park-outline:success",
   error: "ph:seal-warning-bold",
 };
+
 onMounted(() => {
   isActive.value = true;
   setTimeout(() => {

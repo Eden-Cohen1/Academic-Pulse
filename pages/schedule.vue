@@ -127,5 +127,3 @@ const deleteCard = (card) => {
     />
   </main>
 </template>
-
-<style scoped></style>

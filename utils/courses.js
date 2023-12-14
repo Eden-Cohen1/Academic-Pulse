@@ -1,6 +1,5 @@
 export const addCourse = async function (apiResponse, client, formData) {
   const userData = useUser();
-
   apiResponse.loading = true;
   apiResponse.errorMsg = "";
   apiResponse.successMsg = "";
@@ -23,15 +22,10 @@ export const addCourse = async function (apiResponse, client, formData) {
   } catch (error) {
     apiResponse.errorMsg = error.message;
   } finally {
-    formData.courseName =
-      formData.number =
-      formData.points =
-      formData.status =
-        "";
+    formData.courseName = formData.number = formData.points = "";
     apiResponse.loading = false;
   }
 };
-
 export const getAllCourses = async (client) => {
   const userData = useUser();
   const user = await userData.getUserData();
@@ -42,7 +36,6 @@ export const getAllCourses = async (client) => {
     .eq("userId", user?.id);
   return courses;
 };
-
 export const deleteCourse = async (id, courses) => {
   const client = useSupabaseClient();
   try {
@@ -54,14 +47,12 @@ export const deleteCourse = async (id, courses) => {
     console.log(error);
   }
 };
-
 export const updateCourses = async (courses, client) => {
   const { data } = await getAllCourses(client);
   courses.length = 0;
   courses.push(...data);
   console.log(courses);
 };
-
 export const saveChanges = async (emit, formData) => {
   const client = useSupabaseClient();
 

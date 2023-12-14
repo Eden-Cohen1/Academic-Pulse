@@ -34,10 +34,6 @@ const suite = create((data = {}, currentField) => {
   test("points", "1 <= points <= 10", () => {
     enforce(data.points).isBetween(1, 10);
   });
-
-  test("status", "Status is required", () => {
-    enforce(data.status).isNotEmpty();
-  });
 });
 
 export default suite;

@@ -31,7 +31,7 @@ defineEmits(["course"]);
 <template>
   <div
     :id="hiddenState"
-    class="fixed -right-5 md:top-[28.5%] top-[25%] flex order-2 h-[65%] max-w-[60%] overflow-y-auto overflow-x-hidden bg-third z-20 border-[1px] border-borderColor rounded-2xl rounded-tr-none rounded-br-none p-2 pr-5"
+    class="fixed -right-5 md:top-[32%] top-[32%] flex order-2 h-[65%] max-w-[60%] overflow-y-auto overflow-x-hidden bg-third z-20 border-[1px] border-borderColor rounded-2xl rounded-tr-none rounded-br-none p-2 pr-5"
   >
     <div class="flex flex-col w-[20rem] h-full gap-2 order-1 items-center pl-5">
       <h1

@@ -1,26 +1,27 @@
 <script setup>
 import { animate, inView } from "motion";
-const firstLoad = localStorage.getItem("firstLoad");
+const firstLoad = sessionStorage.getItem("firstLoad");
 const text1 = ref(null);
 const text2 = ref(null);
 const image1 = ref(null);
 const image2 = ref(null);
+
 onMounted(() => {
   if (!firstLoad) {
-    const options = { duration: 3 };
+    const options = { duration: 2 };
     inView(text1.value, (info) => {
-      animate(info.target, { x: [1000, 0], opacity: [0, 1] }, options);
+      animate(info.target, { x: [800, 0], opacity: [0, 1] }, options);
     });
     inView(image2.value, (info) => {
-      animate(info.target, { x: [1000, 0], opacity: [0, 1] }, options);
+      animate(info.target, { x: [800, 0], opacity: [0, 1] }, options);
     });
     inView(text2.value, (info) => {
-      animate(info.target, { x: [-1000, 0], opacity: [0, 1] }, options);
+      animate(info.target, { x: [-800, 0], opacity: [0, 1] }, options);
     });
     inView(image1.value, (info) => {
-      animate(info.target, { x: [-1000, 0], opacity: [0, 1] }, options);
+      animate(info.target, { x: [-800, 0], opacity: [0, 1] }, options);
     });
-    localStorage.setItem("firstLoad", "1");
+    sessionStorage.setItem("firstLoad", "1");
   }
 });
 const darkMode = useDark();
@@ -67,7 +68,6 @@ const images = computed(() => {
         <NuxtImg :src="images.add" />
       </div>
     </div>
-
     <div
       class="step flex flex-col md:flex-row md:w-[80%] h-fit items-center md:items-start md:justify-around gap-4 mt-40 md:mt-60"
     >
@@ -102,5 +102,3 @@ const images = computed(() => {
     </div>
   </main>
 </template>
-
-<style scoped></style>

@@ -5,7 +5,7 @@ const formData = reactive({
   courseName: "",
   number: "",
   points: "",
-  status: "",
+  status: "upcoming",
 });
 const apiResponse = reactive({
   errorMsg: "",
@@ -127,5 +127,3 @@ const validate = (name) => {
     </div>
   </main>
 </template>
-
-<style scoped></style>

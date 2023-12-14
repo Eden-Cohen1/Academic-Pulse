@@ -13,7 +13,7 @@ export const signUp = async (apiResponse, formData, client) => {
     apiResponse.errorMsg = error.message;
   }
 };
-export const googleSignUp = async (apiResponse, formData, client) => {
+export const googleSignUp = async (apiResponse, client) => {
   try {
     apiResponse.errorMsg = "";
     const { data, error } = await client.auth.signInWithOAuth({
@@ -27,7 +27,6 @@ export const googleSignUp = async (apiResponse, formData, client) => {
     apiResponse.errorMsg = error.message;
   }
 };
-
 export const insertToDB = async (id, formData, client, apiResponse = {}) => {
   try {
     const { data, error } = await client.from("users").insert([
@@ -42,7 +41,6 @@ export const insertToDB = async (id, formData, client, apiResponse = {}) => {
     // apiResponse?.errorMsg = error.message;
   }
 };
-
 export const checkInDbAndAddUser = async (location) => {
   const client = useSupabaseClient();
   if (location.includes("code")) {

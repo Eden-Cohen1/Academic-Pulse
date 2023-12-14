@@ -15,6 +15,12 @@ export default defineNuxtConfig({
     "@nuxtjs/supabase",
     ["@pinia/nuxt", { autoImports: ["defineStore"] }],
   ],
+  gtag: {
+    id: "G-FVQR5KRCXJ",
+    config: {
+      page_title: "Academic-Pulse",
+    },
+  },
   plugins: [{ src: "~/plugins/vuedraggable.js" }],
   imports: {
     dirs: ["stores"],

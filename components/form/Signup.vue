@@ -1,6 +1,5 @@
 <script setup>
 import suite from "~/validations/signup";
-
 const client = useSupabaseClient();
 const formData = reactive({
   email: "",
@@ -12,8 +11,8 @@ const apiResponse = reactive({
   successMsg: "",
   loading: false,
 });
-
 let res = reactive(suite.get());
+
 const validate = (name) => {
   res = suite(
     {
@@ -74,9 +73,8 @@ const validate = (name) => {
       />
       <div class="relative feedback h-5 top-1 w-fit m-auto"></div>
     </form>
-
     <ButtonGoogle
-      @googleClick="googleSignUp(apiResponse, formData, client)"
+      @googleClick="googleSignUp(apiResponse, client)"
       span="Signup with Google"
     />
   </main>

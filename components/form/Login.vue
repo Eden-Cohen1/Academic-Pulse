@@ -11,6 +11,7 @@ const apiResponse = reactive({
   loading: false,
 });
 let res = reactive(suite.get());
+
 const login = async () => {
   try {
     apiResponse.loading = true;
@@ -27,21 +28,6 @@ const login = async () => {
     apiResponse.loading = false;
   }
 };
-const googleLogin = async () => {
-  try {
-    apiResponse.errorMsg = "";
-    const { data, error } = await client.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${location.origin}/`,
-      },
-    });
-    if (error) throw error;
-  } catch (error) {
-    apiResponse.errorMsg = error.message;
-  }
-};
-
 const validate = (name) => {
   res = suite({ email: formData.email, password: formData.password }, name);
 };
@@ -70,7 +56,6 @@ const validate = (name) => {
         label="Password"
         @update:modelValue="validate('password')"
       />
-
       <NuxtLink
         to="login/reset"
         class="relative left-[11rem] sm:left-[13.5rem] w-fit text-btn hover:font-semibold cursor-pointer"
@@ -83,8 +68,9 @@ const validate = (name) => {
         :loading="formData.loading"
       />
     </form>
-    <ButtonGoogle @googleClick="googleLogin" span="Login With Google" />
+    <ButtonGoogle
+      @googleClick="googleSignUp(apiResponse, client)"
+      span="Login With Google"
+    />
   </main>
 </template>
-
-<style scoped></style>
