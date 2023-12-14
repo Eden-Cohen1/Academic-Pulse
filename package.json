@@ -17,6 +17,7 @@
     "nuxt": "^3.8.2",
     "nuxt-gtag": "^1.1.1",
     "nuxt-icon": "^0.6.6",
+    "nuxt-seo-kit": "^1.3.13",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },

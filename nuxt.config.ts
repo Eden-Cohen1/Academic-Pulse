@@ -1,6 +1,30 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // @ts-nocheck
 export default defineNuxtConfig({
+  app: {
+    head: {
+      charset: "utf-16",
+      viewport: "width=device-width, initial-scale=1",
+      title: "Academic-Pulse",
+      meta: [
+        {
+          name: "description",
+          content:
+            "Track your academic plan and arrange your learning schedule.",
+        },
+      ],
+    },
+  },
+  extends: ["nuxt-seo-kit"],
+  runtimeConfig: {
+    public: {
+      siteName: "Academic-Pulse",
+      siteUrl: "https://academic-pulse.netlify.app/",
+      siteDescription:
+        "Track your academic plan and arrange your learning schedule.",
+      language: "en",
+    },
+  },
   devtools: { enabled: true },
   routeRules: {
     "/": { prerender: true },

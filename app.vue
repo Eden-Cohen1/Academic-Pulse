@@ -16,6 +16,7 @@ watch(darkMode, () => {
 
 <template>
   <main class="h-screen">
+    <SeoKit />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
