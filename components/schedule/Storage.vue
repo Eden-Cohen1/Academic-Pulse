@@ -5,7 +5,7 @@ const props = defineProps({
   },
 });
 const isActive = ref(false);
-const hiddenState = ref(isActive ? "active" : "hidden");
+const hiddenState = ref("hidden");
 const changeState = () => {
   isActive.value = !isActive.value;
   hiddenState.value = isActive.value ? "active" : "hidden";
