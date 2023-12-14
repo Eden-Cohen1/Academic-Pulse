@@ -8,7 +8,7 @@ export const useDark = defineStore("darkMode", {
   },
   getters: {
     getLogo: (state) => {
-      return state.isDark ? "logo-dark.png" : "logo.png";
+      return state.isDark ? `logo-dark.png` : `logo.png`;
     },
   },
 });

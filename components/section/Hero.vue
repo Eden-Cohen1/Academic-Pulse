@@ -1,7 +1,7 @@
 <script setup>
 const darkMode = useDark();
 const heroPath = computed(() => {
-  return darkMode.isDark ? "hero-dark.png" : "hero.png";
+  return darkMode.isDark ? `hero-dark.png` : `hero.png`;
 });
 </script>
 <template>

@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     image: {
       provider: "netlify",
       netlify: {
-        baseURl: "",
+        baseURl: process.env.IMAGES_URL,
       },
     },
     postcss: {

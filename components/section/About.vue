@@ -27,13 +27,13 @@ const darkMode = useDark();
 const images = computed(() => {
   if (darkMode.isDark) {
     return {
-      add: "add-dark.png",
-      schedule: "schedule-dark.png",
+      add: `add-dark.png`,
+      schedule: `schedule-dark.png`,
     };
   }
   return {
-    add: "add.png",
-    schedule: "schedule.png",
+    add: `add.png`,
+    schedule: `schedule.png`,
   };
 });
 </script>
