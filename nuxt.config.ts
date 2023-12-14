@@ -2,6 +2,9 @@
 // @ts-nocheck
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  routeRules: {
+    "/": { prerender: true },
+  },
   modules: [
     "nuxt-icon",
     "nuxt-gtag",
