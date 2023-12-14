@@ -19,7 +19,7 @@ export const googleSignUp = async (apiResponse, client) => {
     const { data, error } = await client.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `https://academic-pulse.netlify.app/`,
+        redirectTo: `https://www.academic-pulse.com/`,
       },
     });
     if (error) throw error;
