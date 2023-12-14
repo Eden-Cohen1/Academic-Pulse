@@ -4,8 +4,7 @@ const props = defineProps({
     type: Array,
   },
 });
-const isMobile = inject("isMobile");
-const isActive = ref(isMobile.value);
+const isActive = ref(false);
 const hiddenState = ref(isActive ? "active" : "hidden");
 const changeState = () => {
   isActive.value = !isActive.value;
