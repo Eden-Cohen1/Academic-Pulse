@@ -64,7 +64,7 @@ const images = computed(() => {
         ref="image1"
         class="flex flex-col items-center gap-5 img max-w-lg h-auto"
       >
-        <img :src="images.add" />
+        <NuxtImg :src="images.add" />
       </div>
     </div>
 
@@ -86,7 +86,7 @@ const images = computed(() => {
         ref="image2"
         class="flex flex-col items-center gap-5 img max-w-lg h-auto"
       >
-        <img :src="images.schedule" />
+        <NuxtImg :src="images.schedule" />
       </div>
     </div>
     <div

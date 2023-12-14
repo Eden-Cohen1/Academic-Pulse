@@ -31,13 +31,9 @@ export default defineNuxtConfig({
       exclude: ["/login/reset"],
     },
     image: {
-      providers: {
-        random: {
-          provider: "netlify",
-          netlify: {
-            baseURl: "",
-          },
-        },
+      provider: "netlify",
+      netlify: {
+        baseURl: process.env.IMAGES_URL || "",
       },
     },
     postcss: {

@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.1.0",
+    "@nuxt/image-edge": "^1.1.0-28374834.2dee537",
     "@pinia/nuxt": "^0.5.1",
     "motion": "^10.16.4",
     "pinia": "^2.1.7",
