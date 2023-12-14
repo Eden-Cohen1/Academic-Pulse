@@ -35,7 +35,7 @@ const logout = async () => {
       </div>
       <div class="flex gap-10 items-center">
         <div class="logo mt-4" v-show="user">
-          <img :src="darkMode.getLogo" />
+          <NuxtImg provider="random" :src="darkMode.getLogo" />
         </div>
       </div>
     </nav>
