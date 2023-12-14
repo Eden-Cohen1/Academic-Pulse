@@ -30,6 +30,7 @@ h1 {
   background: -webkit-linear-gradient(315deg, #33a06f, #00dc82 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: -0.1rem;
 }
 button {
   background: -webkit-linear-gradient(315deg, #33a06f, #00dc82 100%);
