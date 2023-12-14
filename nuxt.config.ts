@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "nuxt-gtag",
     "@nuxt/image",
     "@nuxtjs/google-fonts",
+    "@nuxt/image-edge",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/supabase",
     ["@pinia/nuxt", { autoImports: ["defineStore"] }],
@@ -31,9 +32,13 @@ export default defineNuxtConfig({
       exclude: ["/login/reset"],
     },
     image: {
-      provider: "netlify",
-      netlify: {
-        baseURl: process.env.IMAGES_URL || "",
+      providers: {
+        random: {
+          provider: "netlify",
+          netlify: {
+            baseURl: "",
+          },
+        },
       },
     },
     postcss: {
