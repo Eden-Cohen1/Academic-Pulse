@@ -5,7 +5,7 @@ const darkMode = useDark();
 <template>
   <main class="flex flex-col h-screen text-txt p-5 gap-20">
     <div class="relative m-auto top-16">
-      <NuxtImg class="w-96" :src="darkMode.getLogo" />
+      <img class="w-96" :src="darkMode.getLogo" />
     </div>
     <div
       class="form-div flex flex-col mb-24 sm:mb-48 m-auto w-70 sm:w-96 border border-solid border-borderColor rounded-3xl bg-secondary"

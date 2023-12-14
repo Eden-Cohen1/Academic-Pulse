@@ -48,7 +48,7 @@ const exportXL = async () => {
           Export
         </button>
       </header>
-      <NuxtImg :src="`drag.png`" class="w-12 h-12" />
+      <img :src="`drag.png`" class="w-12 h-12" />
     </div>
   </div>
 </template>

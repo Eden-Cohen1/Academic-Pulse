@@ -16,7 +16,7 @@ const heroPath = computed(() => {
         With Your
         <span>Academic</span> Schedule
       </h1>
-      <NuxtImg :src="heroPath" class="m-auto w-52 md:w-72" />
+      <img :src="heroPath" class="m-auto w-52 md:w-72" />
     </div>
   </main>
 </template>
