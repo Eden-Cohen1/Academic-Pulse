@@ -1,18 +1,3 @@
-export const signUp = async (apiResponse, formData, client) => {
-  try {
-    apiResponse.errorMsg = "";
-    apiResponse.successMsg = "";
-    const { data, error } = await client.auth.signUp({
-      email: formData.email,
-      password: formData.password,
-    });
-    if (error) throw error;
-    apiResponse.successMsg = "Check your email to confirm your account.";
-    insertToDB(data.user.id, client, formData, apiResponse);
-  } catch (error) {
-    apiResponse.errorMsg = error.message;
-  }
-};
 export const googleSignUp = async (apiResponse, client) => {
   try {
     apiResponse.errorMsg = "";
@@ -23,6 +8,21 @@ export const googleSignUp = async (apiResponse, client) => {
       },
     });
     if (error) throw error;
+  } catch (error) {
+    apiResponse.errorMsg = error.message;
+  }
+};
+export const signUp = async (apiResponse, formData, client) => {
+  try {
+    apiResponse.errorMsg = "";
+    apiResponse.successMsg = "";
+    const { data, error } = await client.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+    });
+    if (error) throw error;
+    apiResponse.successMsg = "Check your email to confirm your account.";
+    insertToDB(data.user.id, formData, client, apiResponse);
   } catch (error) {
     apiResponse.errorMsg = error.message;
   }
