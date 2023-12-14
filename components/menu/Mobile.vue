@@ -34,9 +34,9 @@ const logout = async () => {
       <NuxtImg :src="darkMode.getLogo" />
     </div>
   </div>
-  <main class="text-txt bg-secondary overflow-hidden" :id="classState">
+  <main class="text-txt bg-primary overflow-hidden" :id="classState">
     <ul
-      class="flex flex-col gap-5 items-center justify-center pt-5 pb-2 max-h-full"
+      class="flex flex-col gap-5 items-center justify-center pt-5 pb-2 max-h-full border-bot"
     >
       <NuxtLink
         class="border-bot pb-1 w-full text-center"

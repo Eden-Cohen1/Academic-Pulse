@@ -47,8 +47,10 @@ const validate = (name) => {
   <main
     class="relative h-fit w-full flex flex-col top-10 justify-center items-center p-10 pt-10 md:pt-32"
   >
-    <h1 class="text-3xl pb-1 font-bold text-txt">Courses Dashboard</h1>
-    <h2 class="text-lg text-txt pb-4 text-center">
+    <h1 class="text-2xl md:text-3xl pb-1 font-bold text-txt text-center m-auto">
+      Courses Dashboard
+    </h1>
+    <h2 class="text-md md:text-lg text-txt pb-4 text-center">
       Add a new course or manage your existing courses
     </h2>
     <div
