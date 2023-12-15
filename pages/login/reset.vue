@@ -26,7 +26,7 @@ const sendResetPass = async () => {
       <div
         class="flex justify-around relative top-0 bg-btn w-full rounded-t-3xl content-center cursor-pointer"
       >
-        <div class="w-full p-3 rounded-tl-3xl cursor-pointer">
+        <div class="w-full p-3 rounded-tl-3xl">
           <h1 class="formHeader">Reset Password</h1>
         </div>
       </div>
