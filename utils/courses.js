@@ -29,6 +29,7 @@ export const addCourse = async function (apiResponse, client, formData) {
 export const checkIfExists = (courses, formData, apiResponse) => {
   setTimeout(() => {
     apiResponse.errorMsg = "";
+    if (apiResponse.successMsg) apiResponse.successMsg = "";
   }, 5000);
   const isNameExists = courses.some(
     (course) => course.name === formData.courseName,
