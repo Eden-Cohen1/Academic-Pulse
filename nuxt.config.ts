@@ -15,15 +15,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-  extends: ["nuxt-seo-kit"],
-  runtimeConfig: {
-    public: {
-      siteUrl: "https://academic-pulse.netlify.app/",
-      siteDescription:
-        "Track your academic plan and arrange your learning schedule.",
-      language: "en",
-    },
-  },
   devtools: { enabled: true },
   routeRules: {
     "/": { prerender: true },
