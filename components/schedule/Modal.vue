@@ -6,7 +6,7 @@ const formData = reactive({
   year: currentYear,
   semester: "A",
 });
-for (let y = 0; y <= 5; y++) {
+for (let y = -5; y <= 5; y++) {
   YearOptions.push(currentYear + y);
 }
 const addCard = (emit) => {
