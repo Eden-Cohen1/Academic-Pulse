@@ -6,13 +6,13 @@ const heroPath = computed(() => {
 </script>
 <template>
   <main
-    class="flex relative top-0 justify-center align-middle items-end border-b-[1px] border-borderColor w-screen pt-14"
+    class="relative top-0 flex w-screen items-end justify-center border-b-[1px] border-borderColor pt-14 align-middle"
   >
     <div class="relative flex flex-col gap-5">
-      <h1 class="font-[900] text-center text-5xl md:text-7xl xl:text-8xl">
+      <h1 class="text-center text-5xl font-[900] md:text-7xl xl:text-8xl">
         Stay In Tune
       </h1>
-      <h1 class="font-[900] text-center text-2xl md:text-4xl xl:text-5xl">
+      <h1 class="text-center text-2xl font-[900] md:text-4xl xl:text-5xl">
         With Your
         <span>Academic</span> Schedule
       </h1>

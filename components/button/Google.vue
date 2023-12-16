@@ -7,12 +7,12 @@ defineProps({
 defineEmits(["googleClick"]);
 </script>
 <template>
-  <p class="mb-6 mt-2 m-auto text-borderColor font-bold">
+  <p class="m-auto mb-6 mt-2 font-bold text-borderColor">
     <span class="bg-secondary p-[10px]">or</span>
   </p>
   <button class="google" @click="$emit('googleClick')">
     <img
-      class="w-6 h-6"
+      class="h-6 w-6"
       src="https://www.svgrepo.com/show/475656/google-color.svg"
       alt="google logo"
     />

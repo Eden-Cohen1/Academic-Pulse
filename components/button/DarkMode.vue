@@ -7,7 +7,7 @@ const toggleDarkMode = () => {
 </script>
 
 <template>
-  <button class="text-txt top-6 left-5" @click="toggleDarkMode">
+  <button class="left-5 top-6 text-txt" @click="toggleDarkMode">
     <Icon v-if="darkMode.isDark" name="uil:moon" />
     <Icon v-else name="uil:sun" />
   </button>

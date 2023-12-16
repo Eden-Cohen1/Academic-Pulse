@@ -19,7 +19,7 @@ defineEmits(["newCard", "close"]);
 </script>
 <template>
   <main
-    class="absolute top-[22%] left-4 w-64 h-fit bg-secondary rounded-xl p-5 border-[2px] border-borderColor"
+    class="absolute left-4 top-[22%] h-fit w-64 rounded-xl border-[2px] border-borderColor bg-secondary p-5"
   >
     <button @click="$emit('close')" class="absolute right-0 top-0 text-txt">
       <icon name="material-symbols-light:close-small-rounded" />

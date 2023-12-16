@@ -8,7 +8,7 @@ const sendResetPass = async () => {
     successMsg.value = "";
     errorMsg.value = "";
     const { data, error } = await client.auth.resetPasswordForEmail(
-      email?.value
+      email?.value,
     );
     if (error) throw error;
     successMsg.value = "Password-reset email sent!";
@@ -19,18 +19,18 @@ const sendResetPass = async () => {
 </script>
 
 <template>
-  <main class="flex content-center h-screen text-txt">
+  <main class="flex h-screen content-center text-txt">
     <div
-      class="form-div flex flex-col m-auto sm:w-fit border border-solid border-borderColor rounded-3xl bg-secondary max-h-80 w-[21rem]"
+      class="form-div m-auto flex max-h-80 w-[21rem] flex-col rounded-3xl border border-solid border-borderColor bg-secondary sm:w-fit"
     >
       <div
-        class="flex justify-around relative top-0 bg-btn w-full rounded-t-3xl content-center cursor-pointer"
+        class="relative top-0 flex w-full cursor-pointer content-center justify-around rounded-t-3xl bg-btn"
       >
-        <div class="w-full p-3 rounded-tl-3xl">
+        <div class="w-full rounded-tl-3xl p-3">
           <h1 class="formHeader">Reset Password</h1>
         </div>
       </div>
-      <div class="p-5 pt-7 pb-2">
+      <div class="p-5 pb-2 pt-7">
         <form @submit.prevent="sendResetPass" class="flex flex-col gap-1">
           <InputAuth
             v-model="email"
@@ -39,14 +39,14 @@ const sendResetPass = async () => {
             :errors="[]"
             label="Account Email Address:"
           />
-          <small class="text-xs flex-wrap pl-2 pb-3 pt-1 font-semibold">
+          <small class="flex-wrap pb-3 pl-2 pt-1 text-xs font-semibold">
             You'll receive an email to recover your password.
           </small>
-          <div class="flex flex-col gap-0 items-center mb-1 h-18">
+          <div class="h-18 mb-1 flex flex-col items-center gap-0">
             <InputSubmit
               :isValid="false"
               text="Send"
-              class="w-56 m-0 mt-1 ml-1"
+              class="m-0 ml-1 mt-1 w-56"
             />
             <small class="text-red-500"> {{ errorMsg }} </small>
             <small class="text-green-500">{{ successMsg }} </small>

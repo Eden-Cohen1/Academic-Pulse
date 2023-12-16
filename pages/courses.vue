@@ -28,7 +28,7 @@ const validate = (name) => {
       number: formData.number,
       points: formData.points,
     },
-    name
+    name,
   );
 };
 </script>
@@ -45,29 +45,29 @@ const validate = (name) => {
     v-else-if="apiResponse.successMsg"
   />
   <main
-    class="relative h-fit w-full flex flex-col top-10 justify-center items-center p-10 pt-10 md:pt-32"
+    class="relative top-10 flex h-fit w-full flex-col items-center justify-center p-10 pt-10 md:pt-32"
   >
-    <h1 class="text-2xl md:text-3xl pb-1 font-bold text-txt text-center m-auto">
+    <h1 class="m-auto pb-1 text-center text-2xl font-bold text-txt md:text-3xl">
       Courses Dashboard
     </h1>
-    <h2 class="text-md md:text-lg text-txt pb-4 text-center">
+    <h2 class="text-md pb-4 text-center text-txt md:text-lg">
       Add a new course or manage your existing courses
     </h2>
     <div
-      class="h-fit min-w-[100vw] lg:min-w-[60vw] bg-third rounded-xl md:rounded-[4rem] p-5 md:p-12 pt-12 border-[1px] border-btn"
+      class="h-fit min-w-[100vw] rounded-xl border-[1px] border-btn bg-third p-5 pt-12 md:rounded-[4rem] md:p-12 lg:min-w-[60vw]"
     >
       <h1 class="text-xl font-semibold text-txt">Add A Course</h1>
       <form
         @submit.prevent="callAddCourse"
-        class="flex flex-col w-fit p-5 pl-0 rounded-xl justify-start items-start gap-5 mb-10"
+        class="mb-10 flex w-fit flex-col items-start justify-start gap-5 rounded-xl p-5 pl-0"
       >
-        <div class="flex justify-left flex-wrap items-start gap-5 text-sm">
+        <div class="justify-left flex flex-wrap items-start gap-5 text-sm">
           <InputAuth
             v-model.trim="formData.courseName"
             type="text"
             label="Course Name"
             :errors="res.getErrors('name')"
-            class="md:max-w-full max-w-[100%]"
+            class="max-w-[100%] md:max-w-full"
             @update:modelValue="validate('name')"
             required
           />
@@ -76,23 +76,23 @@ const validate = (name) => {
             type="text"
             label="Course Number"
             :errors="res.getErrors('number')"
-            class="md:max-w-full max-w-[100%]"
+            class="max-w-[100%] md:max-w-full"
             @update:modelValue="validate('number')"
           />
         </div>
-        <div class="flex flex-wrap justify-left gap-5">
+        <div class="justify-left flex flex-wrap gap-5">
           <InputAuth
             v-model.trim="formData.points"
             type="text"
             label="Points"
             :errors="res.getErrors('points')"
-            class="md:max-w-full max-w-[100%]"
+            class="max-w-[100%] md:max-w-full"
             @update:modelValue="validate('points')"
           />
-          <div class="flex flex-col gap-2 justify-start items-start">
-            <label class="text-txt text-sm font-medium text-left">Status</label>
+          <div class="flex flex-col items-start justify-start gap-2">
+            <label class="text-left text-sm font-medium text-txt">Status</label>
             <select
-              class="bg-primary p-1 text-txt h-8 border-borderColor border-[1px] text-sm rounded-md"
+              class="h-8 rounded-md border-[1px] border-borderColor bg-primary p-1 text-sm text-txt"
               name="status"
               v-model="formData.status"
             >
@@ -113,8 +113,8 @@ const validate = (name) => {
           :loading="apiResponse.loading"
         />
       </form>
-      <h1 class="text-xl font-semibold text-txt pb-3">My Courses</h1>
-      <div class="grid geid-cols-1 gap-4">
+      <h1 class="pb-3 text-xl font-semibold text-txt">My Courses</h1>
+      <div class="geid-cols-1 grid gap-4">
         <CourseEdit
           v-for="course in courses"
           :name="course.name"

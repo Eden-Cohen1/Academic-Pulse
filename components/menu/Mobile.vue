@@ -26,7 +26,7 @@ const logout = async () => {
   <div class="sticky flex justify-center">
     <div class="flex gap-3">
       <button :class="{ 'text-white': darkMode.isDark }">
-        <icon :name="icons" class="w-8 h-auto" @click="changeState" />
+        <icon :name="icons" class="h-auto w-8" @click="changeState" />
       </button>
       <ButtonDarkMode />
     </div>
@@ -34,30 +34,30 @@ const logout = async () => {
       <NuxtImg :src="darkMode.getLogo" />
     </div>
   </div>
-  <main class="text-txt bg-primary overflow-hidden" :id="classState">
+  <main class="overflow-hidden bg-primary text-txt" :id="classState">
     <ul
-      class="flex flex-col gap-5 items-center justify-center pt-5 pb-2 max-h-full border-bot"
+      class="border-bot flex max-h-full flex-col items-center justify-center gap-5 pb-2 pt-5"
     >
       <NuxtLink
-        class="border-bot pb-1 w-full text-center"
+        class="border-bot w-full pb-1 text-center"
         @click="changeState"
         to="/"
         >Home</NuxtLink
       >
       <NuxtLink
-        class="border-bot pb-1 w-full text-center"
+        class="border-bot w-full pb-1 text-center"
         @click="changeState"
         to="/courses"
         >Add Courses</NuxtLink
       >
       <NuxtLink
-        class="border-bot pb-1 w-full text-center"
+        class="border-bot w-full pb-1 text-center"
         @click="changeState"
         to="/schedule"
         >My Schedule</NuxtLink
       >
       <button
-        class="logout rounded-md font-medium shadow-sm text-center cursor-pointer w-28 max-h-9 text-white mb-3"
+        class="logout mb-3 max-h-9 w-28 cursor-pointer rounded-md text-center font-medium text-white shadow-sm"
         @click="logout"
       >
         Logout

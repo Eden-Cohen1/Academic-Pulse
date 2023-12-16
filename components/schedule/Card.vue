@@ -29,40 +29,40 @@ defineEmits(["course", "deleteClick"]);
 
 <template>
   <div
-    class="flex flex-col card w-[80%] border-borderColor border-[2px] md:w-96 md:m h-80 rounded-3xl bg-third items-start"
+    class="card md:m flex h-80 w-[80%] flex-col items-start rounded-3xl border-[2px] border-borderColor bg-third md:w-96"
   >
     <header
-      class="relative flex justify-center items-center w-full h-12 rounded-t-3xl bg-secondary"
+      class="relative flex h-12 w-full items-center justify-center rounded-t-3xl bg-secondary"
     >
-      <h1 class="w-fit break-words text-md font-bold text-txt">
+      <h1 class="text-md w-fit break-words font-bold text-txt">
         {{ card.year }} - {{ card.semester }}
       </h1>
       <button class="absolute right-5" @click="$emit('deleteClick', card)">
-        <icon name="ci:trash-full" class="hover:text-red-800 text-txt" />
+        <icon name="ci:trash-full" class="text-txt hover:text-red-800" />
       </button>
     </header>
     <div
-      class="flex justify-center w-full h-full rounded-b-3xl overflow-x-hidden overflow-y-auto p-3"
+      class="flex h-full w-full justify-center overflow-y-auto overflow-x-hidden rounded-b-3xl p-3"
     >
       <draggable
         :list="cardCourses"
         group="courses"
         item-key="id"
-        class="flex flex-wrap gap-2 w-[90%] h-full"
+        class="flex h-full w-[90%] flex-wrap gap-2"
         @change="finish($event, $emit)"
       >
         <template #item="{ element: course }">
           <div
-            class="course flex flex-col rounded-lg h-fit bg-secondary text-txt text-center gap-0.5 border-btn border-[1px] p-1.5 cursor-grab"
+            class="course flex h-fit cursor-grab flex-col gap-0.5 rounded-lg border-[1px] border-btn bg-secondary p-1.5 text-center text-txt"
             :id="course.status"
           >
             <h1
-              class="w-full break-words text-sm text-semibold rounded-t-lg p-2 pb-0.5 pt-0.5"
+              class="text-semibold w-full break-words rounded-t-lg p-2 pb-0.5 pt-0.5 text-sm"
             >
               {{ course.name }}
             </h1>
-            <p class="text-txtLight text-xs">{{ course.number }}</p>
-            <p class="text-txtLight text-xs">{{ course.points }} points</p>
+            <p class="text-xs text-txtLight">{{ course.number }}</p>
+            <p class="text-xs text-txtLight">{{ course.points }} points</p>
           </div>
         </template>
       </draggable>

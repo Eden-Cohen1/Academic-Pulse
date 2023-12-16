@@ -62,52 +62,52 @@ const deleteCard = (card) => {
     :text="messages.successMsg"
     v-if="messages.successMsg"
   />
-  <main class="flex flex-col w-full">
+  <main class="flex w-full flex-col">
     <ScheduleHeader :courses="courses" />
-    <div class="relative flex h-full w-full overflow-hidden min-h-screen">
+    <div class="relative flex h-full min-h-screen w-full overflow-hidden">
       <ScheduleStorage :courses="courses" />
       <div
-        class="w-full h-full flex flex-col md:flex-row flex-wrap items-center md:mt-12 mt-32 md:p-16 p-2 gap-5 overflow-y-auto"
+        class="mt-32 flex h-full w-full flex-col flex-wrap items-center gap-5 overflow-y-auto p-2 md:mt-12 md:flex-row md:p-16"
       >
-        <div class="absolute flex top-5 left-5 text-txt items-start">
+        <div class="absolute left-5 top-5 flex items-start text-txt">
           <button @click="modalOpen = true">
             <icon
               name="material-symbols:add-box-outline-rounded"
-              class="w-6 h-auto"
+              class="h-auto w-6"
             />
           </button>
           <button
             @click="updateCoursesDB(courses, messages)"
-            class="relative btn-primary left-4 pt-1 text-sm"
+            class="btn-primary relative left-4 pt-1 text-sm"
           >
             Save
           </button>
 
           <div
-            class="relative md:left-20 left-16 flex flex-col sm:flex-row text-txt gap-2 sm:items-center"
+            class="relative left-16 flex flex-col gap-2 text-txt sm:flex-row sm:items-center md:left-20"
           >
-            <div class="flex gap-2 items-center">
+            <div class="flex items-center gap-2">
               <div
-                class="w-4 h-4 border-borderColor border-[3px] rounded-md ml-2"
+                class="ml-2 h-4 w-4 rounded-md border-[3px] border-borderColor"
               ></div>
               <p>Upcoming({{ progress.upcoming }})</p>
             </div>
-            <div class="flex gap-2 items-center">
+            <div class="flex items-center gap-2">
               <div
-                class="w-4 h-4 border-orange-400 border-[3px] rounded-md ml-2"
+                class="ml-2 h-4 w-4 rounded-md border-[3px] border-orange-400"
               ></div>
               <p>In-proggess({{ progress.inprogress }})</p>
             </div>
-            <div class="flex gap-2 items-center">
+            <div class="flex items-center gap-2">
               <div
-                class="w-4 h-4 border-btn border-[3px] rounded-md ml-2"
+                class="ml-2 h-4 w-4 rounded-md border-[3px] border-btn"
               ></div>
               <p>Finished({{ progress.finished }})</p>
             </div>
           </div>
         </div>
         <p
-          class="absolute left-5 lg:left-[90%] md:left-[85%] md:top-4 top-16 text-txt text-sm font-semibold p-2 border-borderColor border-[1px] rounded-lg w-fit"
+          class="absolute left-5 top-16 w-fit rounded-lg border-[1px] border-borderColor p-2 text-sm font-semibold text-txt md:left-[85%] md:top-4 lg:left-[90%]"
         >
           {{ progress.donePoints }} / {{ progress.allPoints }} Points
         </p>

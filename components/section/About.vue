@@ -41,21 +41,21 @@ const images = computed(() => {
 
 <template>
   <main
-    class="grid grid-cols-1 h-fit justify-items-center pr-8 pl-8 md:pt-36 lg:pl-0 2xl:pl-32 lg:pr-8 2xl:pr-32 pt-12 pb-16"
+    class="grid h-fit grid-cols-1 justify-items-center pb-16 pl-8 pr-8 pt-12 md:pt-36 lg:pl-0 lg:pr-8 2xl:pl-32 2xl:pr-32"
   >
     <h1
-      class="md:text-4xl text-2xl font-bold text-txt text-center md:justify-self-start md:ml-24 mt-12"
+      class="mt-12 text-center text-2xl font-bold text-txt md:ml-24 md:justify-self-start md:text-4xl"
     >
       <span class="text-btn">How</span> does it work ?
     </h1>
     <div
-      class="step flex flex-col md:flex-row gap-3 md:w-[80%] h-fit items-center md:items-start md:justify-around mt-24"
+      class="step mt-24 flex h-fit flex-col items-center gap-3 md:w-[80%] md:flex-row md:items-start md:justify-around"
     >
       <div
         ref="text1"
-        class="flex flex-col relative text-txt max-w-sm md:order-2 md:top-16 items-center text-center md:items-start md:text-left gap-2"
+        class="relative flex max-w-sm flex-col items-center gap-2 text-center text-txt md:top-16 md:order-2 md:items-start md:text-left"
       >
-        <h1 class="text-btn font-bold text-xl">Add Courses</h1>
+        <h1 class="text-xl font-bold text-btn">Add Courses</h1>
         <p class="text-lg">
           Start by adding courses to your storage. Specify details like name,
           number, points, and status for each course.
@@ -63,19 +63,19 @@ const images = computed(() => {
       </div>
       <div
         ref="image1"
-        class="flex flex-col items-center gap-5 img max-w-lg h-auto"
+        class="img flex h-auto max-w-lg flex-col items-center gap-5"
       >
         <NuxtImg :src="images.add" />
       </div>
     </div>
     <div
-      class="step flex flex-col md:flex-row md:w-[80%] h-fit items-center md:items-start md:justify-around gap-4 mt-40 md:mt-60"
+      class="step mt-40 flex h-fit flex-col items-center gap-4 md:mt-60 md:w-[80%] md:flex-row md:items-start md:justify-around"
     >
       <div
         ref="text2"
-        class="flex flex-col relative text-txt max-w-sm md:top-16 items-center text-center md:items-start md:text-left gap-2"
+        class="relative flex max-w-sm flex-col items-center gap-2 text-center text-txt md:top-16 md:items-start md:text-left"
       >
-        <h1 class="text-btn font-bold text-xl">Arrange Plan</h1>
+        <h1 class="text-xl font-bold text-btn">Arrange Plan</h1>
         <p class="text-lg">
           Arrange your academic plan easily by using our
           <b>Drag & Drop</b> planner. Add your courses and place them in the
@@ -84,15 +84,15 @@ const images = computed(() => {
       </div>
       <div
         ref="image2"
-        class="flex flex-col items-center gap-5 img max-w-lg h-auto"
+        class="img flex h-auto max-w-lg flex-col items-center gap-5"
       >
         <NuxtImg :src="images.schedule" />
       </div>
     </div>
     <div
-      class="flex flex-col w-full items-center md:gap-10 gap-5 mt-32 md:mt-44"
+      class="mt-32 flex w-full flex-col items-center gap-5 md:mt-44 md:gap-10"
     >
-      <h1 class="md:text-4xl text-2xl font-bold text-txt text-center">
+      <h1 class="text-center text-2xl font-bold text-txt md:text-4xl">
         Keep track of your <span class="text-btn">Academic Pulse</span>
         <icon class="ml-2" name="bi:clipboard-pulse" />
       </h1>

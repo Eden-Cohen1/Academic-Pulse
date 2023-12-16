@@ -17,7 +17,7 @@ const props = defineProps({
     <Icon
       v-if="loading"
       name="eos-icons:three-dots-loading"
-      class="relative w-11 h-auto bottom-2"
+      class="relative bottom-2 h-auto w-11"
     />
     <p v-else>{{ text }}</p>
   </button>

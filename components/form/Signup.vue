@@ -20,13 +20,13 @@ const validate = (name) => {
       password: formData.password,
       fullName: formData.fullName,
     },
-    name
+    name,
   );
 };
 </script>
 
 <template>
-  <main class="flex flex-col m-5 mt-0">
+  <main class="m-5 mt-0 flex flex-col">
     <Alert
       v-if="apiResponse.errorMsg"
       :text="apiResponse.errorMsg"
@@ -69,9 +69,9 @@ const validate = (name) => {
       <ButtonSubmit
         :isValid="!res.isValid()"
         text="Signup"
-        class="w-56 m-auto mt-8 mb-4"
+        class="m-auto mb-4 mt-8 w-56"
       />
-      <div class="relative feedback h-5 top-1 w-fit m-auto"></div>
+      <div class="feedback relative top-1 m-auto h-5 w-fit"></div>
     </form>
     <ButtonGoogle
       @googleClick="googleSignUp(apiResponse, client)"

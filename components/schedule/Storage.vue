@@ -30,11 +30,11 @@ defineEmits(["course"]);
 <template>
   <div
     :id="hiddenState"
-    class="fixed -right-5 md:top-[32%] top-[32%] flex order-2 h-[65%] max-w-[60%] overflow-y-auto overflow-x-hidden bg-third z-20 border-[1px] border-borderColor rounded-2xl rounded-tr-none rounded-br-none p-2 pr-5"
+    class="fixed -right-5 top-[32%] z-20 order-2 flex h-[65%] max-w-[60%] overflow-y-auto overflow-x-hidden rounded-2xl rounded-br-none rounded-tr-none border-[1px] border-borderColor bg-third p-2 pr-5 md:top-[32%]"
   >
-    <div class="flex flex-col w-[20rem] h-full gap-2 order-1 items-center pl-5">
+    <div class="order-1 flex h-full w-[20rem] flex-col items-center gap-2 pl-5">
       <h1
-        class="text-sm md:text-xl font-bold text-txt p-3 rounded-xl text-center bg-secondary m-2"
+        class="m-2 rounded-xl bg-secondary p-3 text-center text-sm font-bold text-txt md:text-xl"
       >
         Courses Storage
       </h1>
@@ -42,17 +42,17 @@ defineEmits(["course"]);
         :list="storageCourses"
         group="courses"
         item-key="id"
-        class="flex flex-col gap-2 w-[80%] h-full"
+        class="flex h-full w-[80%] flex-col gap-2"
         @change="finish($event, $emit)"
       >
         <template #item="{ element: course }">
           <div
             :id="course.status"
-            class="course flex flex-col rounded-lg h-fit p-2 bg-secondary text-txt text-center gap-0.5 border-btn border-[1px] cursor-grab"
+            class="course flex h-fit cursor-grab flex-col gap-0.5 rounded-lg border-[1px] border-btn bg-secondary p-2 text-center text-txt"
           >
             <h1 class="w-full break-words text-sm">{{ course.name }}</h1>
-            <p class="text-txtLight text-xs">{{ course.number }}</p>
-            <p class="text-txtLight text-xs">{{ course.points }} points</p>
+            <p class="text-xs text-txtLight">{{ course.number }}</p>
+            <p class="text-xs text-txtLight">{{ course.points }} points</p>
           </div>
         </template>
       </draggable>

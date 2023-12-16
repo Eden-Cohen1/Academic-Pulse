@@ -38,7 +38,7 @@ const validate = (name) => {
     :text="apiResponse.errorMsg"
     type="error"
   />
-  <main class="flex flex-col m-5 mt-0">
+  <main class="m-5 mt-0 flex flex-col">
     <form @submit.prevent="login" class="flex flex-col">
       <InputAuth
         v-model="formData.email"
@@ -58,13 +58,13 @@ const validate = (name) => {
       />
       <NuxtLink
         to="login/reset"
-        class="relative left-[11rem] sm:left-[13.5rem] w-fit text-btn hover:font-semibold cursor-pointer"
+        class="relative left-[11rem] w-fit cursor-pointer text-btn hover:font-semibold sm:left-[13.5rem]"
         ><small>Forgot password?</small></NuxtLink
       >
       <ButtonSubmit
         :isValid="!res.isValid()"
         text="Login"
-        class="w-56 m-auto mt-8 mb-4"
+        class="m-auto mb-4 mt-8 w-56"
         :loading="formData.loading"
       />
     </form>

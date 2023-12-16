@@ -37,7 +37,7 @@ const validate = (name) => {
       number: formData.number,
       points: formData.points,
     },
-    name
+    name,
   );
 };
 
@@ -49,7 +49,7 @@ defineEmits(["deleteClick", "updateCourses"]);
   <form
     @submit.prevent="saveChanges($emit, formData)"
     :id="status"
-    class="relative grid grid-cols-4 w-full bg-secondary text-txt pb-3 pl-2 pr-16 border-l-[2px] overflow-hidden gap-4"
+    class="relative grid w-full grid-cols-4 gap-4 overflow-hidden border-l-[2px] bg-secondary pb-3 pl-2 pr-16 text-txt"
   >
     <div class="flex flex-col">
       <label class="text-sm text-borderColor">Name</label>
@@ -57,7 +57,7 @@ defineEmits(["deleteClick", "updateCourses"]);
       <InputAuth
         v-else
         v-model="formData.courseName"
-        class="text-xs md:w-fit w-16 p-1 rounded-lg"
+        class="w-16 rounded-lg p-1 text-xs md:w-fit"
         :placeholder="name"
         :errors="res.getErrors('name')"
         @update:modelValue="validate('name')"
@@ -69,7 +69,7 @@ defineEmits(["deleteClick", "updateCourses"]);
       <InputAuth
         v-else
         v-model="formData.number"
-        class="text-xs md:w-fit w-16 p-1 rounded-lg flex"
+        class="flex w-16 rounded-lg p-1 text-xs md:w-fit"
         :placeholder="number"
         :errors="res.getErrors('number')"
         @update:modelValue="validate('number')"
@@ -81,7 +81,7 @@ defineEmits(["deleteClick", "updateCourses"]);
       <InputAuth
         v-else
         v-model="formData.points"
-        class="text-xs md:w-fit w-16 p-1 rounded-lg"
+        class="w-16 rounded-lg p-1 text-xs md:w-fit"
         :placeholder="points"
         :errors="res.getErrors('points')"
         @update:modelValue="validate('points')"
@@ -94,7 +94,7 @@ defineEmits(["deleteClick", "updateCourses"]);
         v-else
         required
         v-model="formData.status"
-        class="bg-primary text-txt border-borderColor border-[1px] text-sm rounded-md mt-1"
+        class="mt-1 rounded-md border-[1px] border-borderColor bg-primary text-sm text-txt"
         name="status"
       >
         <option class="rounded-md" v-for="option in options" :value="option">

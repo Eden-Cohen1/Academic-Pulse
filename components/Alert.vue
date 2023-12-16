@@ -22,11 +22,11 @@ onMounted(() => {
   <main
     v-if="isActive"
     v-bind="$attrs"
-    class="absolute bottom-4 ml-auto mr-auto left-0 right-0 flex gap-4 w-72 h-14 border-solid border-[1px] rounded-xl bg-secondary items-center justify-between p-3 z-20"
+    class="absolute bottom-4 left-0 right-0 z-20 ml-auto mr-auto flex h-14 w-72 items-center justify-between gap-4 rounded-xl border-[1px] border-solid bg-secondary p-3"
     :class="type"
   >
     <div class="">
-      <Icon :name="icon[type]" class="text-txt w-7 h-auto" />
+      <Icon :name="icon[type]" class="h-auto w-7 text-txt" />
     </div>
     <div>
       <p class="text-sm text-txt">{{ text }}</p>
@@ -35,7 +35,7 @@ onMounted(() => {
       <button @click="isActive = false">
         <Icon
           name="material-symbols-light:close-small-rounded"
-          class="text-txt w-7 h-auto"
+          class="h-auto w-7 text-txt"
         />
       </button>
     </div>

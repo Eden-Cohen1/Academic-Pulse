@@ -31,16 +31,16 @@ const exportXL = async () => {
 
 <template>
   <div
-    class="flex flex-col border-bot w-full h-40 items-center p-5 border-t-[1px] border-borderColor"
+    class="border-bot flex h-40 w-full flex-col items-center border-t-[1px] border-borderColor p-5"
   >
-    <div class="relative flex items-center mt-5 md:gap-3 gap-1">
-      <header class="flex flex-col gap-1 items-center text-txt">
-        <h1 class="text-l md:text-xl font-bold text-center">
+    <div class="relative mt-5 flex items-center gap-1 md:gap-3">
+      <header class="flex flex-col items-center gap-1 text-txt">
+        <h1 class="text-l text-center font-bold md:text-xl">
           Darg & Drop To Arrange Your<span class="text-btn">
             Academic Schedule</span
           >
         </h1>
-        <p class="font-medium text-sm md:text-lg" v-show="!isMobile">
+        <p class="text-sm font-medium md:text-lg" v-show="!isMobile">
           drag each course to it's year/semseter
         </p>
         <button class="btn-primary w-28" @click="exportXL">
@@ -48,7 +48,7 @@ const exportXL = async () => {
           Export
         </button>
       </header>
-      <NuxtImg :src="`drag.png`" class="w-12 h-12" />
+      <NuxtImg :src="`drag.png`" class="h-12 w-12" />
     </div>
   </div>
 </template>
