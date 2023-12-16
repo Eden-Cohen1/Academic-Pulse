@@ -12,6 +12,15 @@ onBeforeMount(() => {
 watch(darkMode, () => {
   localStorage.setItem("isDark", JSON.stringify(darkMode.isDark));
 });
+
+useSeoMeta({
+  title: "Academic-Pulse",
+  ogTitle: "Academic-Pulse",
+  description:
+    "Track your academic plan and arrange your learning schedule with a user friendly Drag&Drop system.",
+  ogDescription:
+    "Track your academic plan and arrange your learning schedule with a user friendly Drag&Drop system.",
+});
 </script>
 
 <template>
