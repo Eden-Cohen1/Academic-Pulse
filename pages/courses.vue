@@ -18,8 +18,11 @@ const options = ["upcoming", "in-progress", "finished"];
 let res = reactive(suite.get());
 
 const callAddCourse = async () => {
-  const course = await addCourse(apiResponse, client, formData);
-  courses.value.push(course);
+  const isExist = checkIfExists(courses.value, formData, apiResponse);
+  if (!isExist) {
+    const course = await addCourse(apiResponse, client, formData);
+    courses.value.push(course);
+  }
 };
 const validate = (name) => {
   res = suite(

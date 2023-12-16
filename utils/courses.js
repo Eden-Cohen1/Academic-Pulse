@@ -26,6 +26,26 @@ export const addCourse = async function (apiResponse, client, formData) {
     apiResponse.loading = false;
   }
 };
+export const checkIfExists = (courses, formData, apiResponse) => {
+  setTimeout(() => {
+    apiResponse.errorMsg = "";
+  }, 5000);
+  const isNameExists = courses.some(
+    (course) => course.name === formData.courseName,
+  );
+  const isNumberExists = courses.some(
+    (course) => course.number == formData.number,
+  );
+  if (isNameExists) {
+    apiResponse.errorMsg = "Course name already exists";
+    return true;
+  }
+  if (isNumberExists) {
+    apiResponse.errorMsg = "Course number already exists";
+    return true;
+  }
+  return false;
+};
 export const getAllCourses = async (client) => {
   const userData = useUser();
   const user = await userData.getUserData();
@@ -51,11 +71,21 @@ export const updateCourses = async (courses, client) => {
   const { data } = await getAllCourses(client);
   courses.length = 0;
   courses.push(...data);
-  console.log(courses);
 };
-export const saveChanges = async (emit, formData) => {
+export const saveChanges = async (emit, formData, apiResponse) => {
   const client = useSupabaseClient();
-
+  const courses = await getAllCourses(client);
+  courses.data.splice(
+    courses.data.findIndex(
+      (course) =>
+        formData.courseName === course.name || formData.number == course.number,
+    ),
+    1,
+  );
+  const isExist = checkIfExists(courses.data, formData, apiResponse);
+  if (isExist) {
+    return;
+  }
   const { error } = await client
     .from("courses")
     .update({

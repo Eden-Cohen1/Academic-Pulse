@@ -19,7 +19,9 @@ const props = defineProps({
   },
 });
 const options = ["upcoming", "in-progress", "finished"];
-const errorMsg = ref("");
+const apiResponse = reactive({
+  errorMsg: "",
+});
 const formData = reactive({
   courseName: props.name,
   number: props.number,
@@ -45,9 +47,13 @@ defineEmits(["deleteClick", "updateCourses"]);
 </script>
 
 <template>
-  <Alert type="error" :text="errorMsg" v-if="errorMsg" />
+  <Alert
+    type="error"
+    :text="apiResponse.errorMsg"
+    v-if="apiResponse.errorMsg"
+  />
   <form
-    @submit.prevent="saveChanges($emit, formData)"
+    @submit.prevent="saveChanges($emit, formData, apiResponse)"
     :id="status"
     class="relative grid w-full grid-cols-4 gap-4 overflow-hidden border-l-[2px] bg-secondary pb-3 pl-2 pr-16 text-txt"
   >

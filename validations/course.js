@@ -15,8 +15,8 @@ const suite = create((data = {}, currentField) => {
     enforce(data.number).isNotEmpty();
   });
 
-  test("number", "must be at least 4 characters", () => {
-    enforce(data.number).longerThanOrEquals(4);
+  test("number", "3 <= digits <= 10", () => {
+    enforce(data.number).isBetween(100, 9999999999);
   });
 
   test("number", "has to be a number", () => {
