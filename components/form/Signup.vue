@@ -1,6 +1,13 @@
 <script setup>
 import suite from "~/validations/signup";
 const client = useSupabaseClient();
+const inputType = computed(() => {
+  return {
+    type: isVisible.value ? "text" : "password",
+    text: isVisible.value ? "hide password" : "show password",
+  };
+});
+const isVisible = ref(false);
 const formData = reactive({
   email: "",
   password: "",
@@ -60,12 +67,17 @@ const validate = (name) => {
       />
       <InputAuth
         v-model="formData.password"
-        type="password"
+        :type="inputType.type"
         class="m-auto"
         :errors="res.getErrors('password')"
         label="Password"
         @update:modelValue="validate('password')"
       />
+      <NuxtLink
+        @click="isVisible = !isVisible"
+        class="relative left-1.5 w-fit cursor-pointer text-gray-400 underline hover:font-semibold sm:left-5"
+        ><small>{{ inputType.text }}</small></NuxtLink
+      >
       <ButtonSubmit
         :isValid="!res.isValid()"
         text="Signup"
