@@ -26,7 +26,7 @@ const update = async () => {
       <div
         class="relative top-0 flex w-full cursor-pointer content-center justify-around rounded-t-3xl bg-btn"
       >
-        <div class="w-full cursor-pointer rounded-tl-3xl p-3 hover:bg-btnHover">
+        <div class="w-full cursor-pointer rounded-tl-3xl p-3">
           <h1 class="formHeader">Update Password</h1>
         </div>
       </div>
@@ -44,7 +44,12 @@ const update = async () => {
             text="Reset Password"
             class="m-auto mt-5 w-48"
           />
-          <small> {{ successMsg }} {{ errorMsg }}</small>
+          <small v-show="errorMsg" class="m-auto mb-2 mt-2 text-red-500">
+            {{ errorMsg }}</small
+          >
+          <small v-show="successMsg" class="m-auto mb-2 mt-2 text-green-500">
+            {{ successMsg }}
+          </small>
         </form>
       </div>
     </div>
