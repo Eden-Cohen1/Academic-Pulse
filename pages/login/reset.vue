@@ -43,7 +43,7 @@ const sendResetPass = async () => {
             You'll receive an email to recover your password.
           </small>
           <div class="h-18 mb-1 flex flex-col items-center gap-0">
-            <InputSubmit
+            <ButtonSubmit
               :isValid="false"
               text="Send"
               class="m-0 ml-1 mt-1 w-56"

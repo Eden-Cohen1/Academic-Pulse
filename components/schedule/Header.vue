@@ -1,15 +1,12 @@
 <script setup>
-const props = defineProps({
-  courses: {
-    type: Array,
-  },
-});
+const client = useSupabaseClient();
 const { width } = screenWidth();
 const isMobile = computed(() => {
   return width.value < 640;
 });
 const exportXL = async () => {
-  const coursesList = props.courses.map((course) => {
+  const courses = await getAllCourses(client);
+  const coursesList = courses.data.map((course) => {
     return {
       "Course Name": course.name,
       "Course Number": course.number,

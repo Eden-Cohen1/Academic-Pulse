@@ -63,7 +63,7 @@ const deleteCard = (card) => {
     v-if="messages.successMsg"
   />
   <main class="flex w-full flex-col">
-    <ScheduleHeader :courses="courses" />
+    <ScheduleHeader />
     <div class="relative flex h-full min-h-screen w-full overflow-hidden">
       <ScheduleStorage :courses="courses" />
       <div

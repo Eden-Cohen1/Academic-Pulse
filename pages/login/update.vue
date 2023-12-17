@@ -19,18 +19,18 @@ const update = async () => {
 };
 </script>
 <template>
-  <main class="flex content-center h-screen text-txt">
+  <main class="flex h-screen content-center text-txt">
     <div
-      class="form-div flex flex-col m-auto sm:w-fit border border-solid border-borderColor rounded-3xl bg-secondary max-h-80 w-[21rem]"
+      class="form-div m-auto flex max-h-80 w-[21rem] flex-col rounded-3xl border border-solid border-borderColor bg-secondary sm:w-fit"
     >
       <div
-        class="flex justify-around relative top-0 bg-btn w-full rounded-t-3xl content-center cursor-pointer"
+        class="relative top-0 flex w-full cursor-pointer content-center justify-around rounded-t-3xl bg-btn"
       >
-        <div class="w-full p-3 rounded-tl-3xl hover:bg-btnHover cursor-pointer">
+        <div class="w-full cursor-pointer rounded-tl-3xl p-3 hover:bg-btnHover">
           <h1 class="formHeader">Update Password</h1>
         </div>
       </div>
-      <div class="p-5 pt-7 pb-2">
+      <div class="p-5 pb-2 pt-7">
         <form @submit.prevent="update" class="flex flex-col">
           <InputAuth
             v-model="password"
@@ -39,7 +39,11 @@ const update = async () => {
             :errors="[]"
             label="New Password:"
           />
-          <InputSubmit :isValid="false" text="Reset Password" />
+          <ButtonSubmit
+            :isValid="false"
+            text="Reset Password"
+            class="m-auto mt-5 w-48"
+          />
           <small> {{ successMsg }} {{ errorMsg }}</small>
         </form>
       </div>
