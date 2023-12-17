@@ -28,7 +28,9 @@ input:disabled:hover {
 }
 button.logout {
   background: -webkit-linear-gradient(315deg, #33a06f, #00dc82 100%) !important;
-  transition: all 0.8s, color 0.3s 0.3s;
+  transition:
+    all 0.8s,
+    color 0.3s 0.3s;
 }
 button.logout:hover {
   background: -webkit-linear-gradient(315deg, #33a06f, #242323 200%) !important;

@@ -30,11 +30,11 @@ defineEmits(["course"]);
 <template>
   <div
     :id="hiddenState"
-    class="fixed -right-5 top-[32%] z-20 order-2 flex h-[65%] max-w-[60%] overflow-y-auto overflow-x-hidden rounded-2xl rounded-br-none rounded-tr-none border-[1px] border-borderColor bg-third p-2 pr-5 md:top-[32%]"
+    class="storage fixed -right-1 top-[32%] z-20 order-2 flex h-[65%] max-w-[55%] overflow-y-auto overflow-x-hidden rounded-2xl rounded-br-none rounded-tr-none border-[1px] border-borderColor bg-third p-2 pr-5 sm:right-[17px] md:top-[32%]"
   >
     <div class="order-1 flex h-full w-[20rem] flex-col items-center gap-2 pl-5">
       <h1
-        class="m-2 rounded-xl bg-secondary p-3 text-center text-sm font-bold text-txt md:text-xl"
+        class="m-2 min-w-[9rem] rounded-xl bg-secondary p-3 text-center text-sm font-bold text-txt sm:min-w-[12rem] md:text-xl"
       >
         Courses Storage
       </h1>
@@ -42,7 +42,7 @@ defineEmits(["course"]);
         :list="storageCourses"
         group="courses"
         item-key="id"
-        class="flex h-full w-[80%] flex-col gap-2"
+        class="flex h-full w-[80%] max-w-[11rem] flex-col gap-2 sm:max-w-[15rem]"
         @change="finish($event, $emit)"
       >
         <template #item="{ element: course }">
@@ -82,7 +82,7 @@ svg:hover {
 }
 
 #hidden {
-  width: 3rem;
+  width: 2rem;
   overflow-y: hidden;
   transition: width 500ms;
 }
@@ -93,5 +93,13 @@ svg:hover {
 }
 .course-list .course {
   width: 30%;
+}
+
+.storage {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.storage::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 </style>
