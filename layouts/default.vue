@@ -8,8 +8,8 @@ provide("isMobile", isMobile);
 </script>
 <template>
   <main v-show="!location.includes('login') && width">
-    <MenuMobile v-if="isMobile && width > 0" />
-    <MenuDesktop v-else-if="width > 0" />
+    <MenuMobile v-if="isMobile" />
+    <MenuDesktop v-else />
   </main>
   <slot />
 </template>

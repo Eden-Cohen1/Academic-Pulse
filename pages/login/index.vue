@@ -3,19 +3,19 @@ const loginState = ref(true);
 const darkMode = useDark();
 </script>
 <template>
-  <main class="flex flex-col h-screen text-txt p-5 gap-20">
-    <div class="relative m-auto top-16">
+  <main class="flex h-screen flex-col gap-20 p-5 text-txt">
+    <div class="relative top-16 m-auto">
       <NuxtImg class="w-96" :src="darkMode.getLogo" />
     </div>
     <div
-      class="form-div flex flex-col mb-24 sm:mb-48 m-auto w-70 sm:w-96 border border-solid border-borderColor rounded-3xl bg-secondary"
+      class="form-div w-70 m-auto mb-24 flex flex-col rounded-3xl border border-solid border-borderColor bg-secondary sm:mb-48 sm:w-96"
     >
       <div
-        class="flex justify-around relative top-0 bg-btn w-full mb-10 rounded-t-3xl content-center cursor-pointer"
+        class="relative top-0 mb-10 flex w-full cursor-pointer content-center justify-around rounded-t-3xl bg-btn"
       >
         <div
           :class="[
-            'w-full p-3 rounded-tl-3xl hover:bg-btnHover cursor-pointer',
+            'w-full cursor-pointer rounded-tl-3xl p-3 hover:bg-btnHover',
             { 'bg-btnHover': loginState },
           ]"
           @click="loginState = true"
@@ -30,7 +30,7 @@ const darkMode = useDark();
         ></div>
         <div
           :class="[
-            'w-full p-3 hover:bg-btnHover rounded-tr-3xl',
+            'w-full rounded-tr-3xl p-3 hover:bg-btnHover',
             { 'bg-btnHover': !loginState },
           ]"
           @click="loginState = false"

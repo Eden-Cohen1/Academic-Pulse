@@ -43,11 +43,14 @@ const validate = (name) => {
       <InputAuth
         v-model="formData.email"
         type="email"
-        class="m-auto mb-5"
+        class="m-auto"
         :errors="res.getErrors('email')"
         label="Email Address"
         @update:modelValue="validate('email')"
       />
+      <small class="relative left-1 mb-5 w-fit text-gray-500 text-txt sm:left-4"
+        ><b>Demo:</b> edenfortesting@gmail.com</small
+      >
       <InputAuth
         v-model="formData.password"
         type="password"
@@ -56,11 +59,17 @@ const validate = (name) => {
         label="Password"
         @update:modelValue="validate('password')"
       />
-      <NuxtLink
-        to="login/reset"
-        class="relative left-[11rem] w-fit cursor-pointer text-btn hover:font-semibold sm:left-[13.5rem]"
-        ><small>Forgot password?</small></NuxtLink
-      >
+      <div class="flex">
+        <small
+          class="relative left-1 top-0.5 w-fit text-gray-500 text-txt sm:left-4"
+          ><b>Demo:</b> 123456</small
+        >
+        <NuxtLink
+          to="login/reset"
+          class="relative left-[5rem] w-fit cursor-pointer text-btn hover:font-semibold sm:left-[8rem]"
+          ><small>Forgot password?</small></NuxtLink
+        >
+      </div>
       <ButtonSubmit
         :isValid="!res.isValid()"
         text="Login"
