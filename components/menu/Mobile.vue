@@ -1,6 +1,7 @@
 <script setup>
 const isActive = ref(false);
 const classState = ref("hidden");
+const user = useSupabaseUser();
 const icons = ref("solar:hamburger-menu-broken");
 const changeState = () => {
   isActive.value = !isActive.value;
@@ -12,6 +13,7 @@ const changeState = () => {
 const darkMode = useDark();
 const client = useSupabaseClient();
 const logout = async () => {
+  changeState();
   try {
     const { error } = await client.auth.signOut();
     if (error) throw error;
@@ -23,7 +25,7 @@ const logout = async () => {
 </script>
 
 <template>
-  <div class="sticky flex justify-center">
+  <div class="sticky flex justify-center" v-show="user">
     <div class="flex gap-3">
       <button :class="{ 'text-white': darkMode.isDark }">
         <icon :name="icons" class="h-auto w-8" @click="changeState" />
