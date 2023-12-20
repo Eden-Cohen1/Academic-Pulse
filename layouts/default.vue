@@ -1,13 +1,14 @@
 <script setup>
-const location = useRoute().fullPath;
-const { width } = screenWidth();
+const isLoggedIn = computed(() => {
+  return !useRoute().fullPath.includes("login");
+});
 const isMobile = computed(() => {
   return width.value <= 767;
 });
 provide("isMobile", isMobile);
 </script>
 <template>
-  <main v-show="!location.includes('login') && width">
+  <main v-show="isLoggedIn">
     <MenuMobile v-if="isMobile" />
     <MenuDesktop v-else />
   </main>
