@@ -2,6 +2,7 @@
 const isLoggedIn = computed(() => {
   return !useRoute().fullPath.includes("login");
 });
+const { width } = screenWidth();
 const isMobile = computed(() => {
   return width.value <= 767;
 });
